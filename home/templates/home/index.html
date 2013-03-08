@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+		<head>
+				<title>{% block title %}Portail de reporting{% endblock %} </title>
+				{% block portal_head %}{% endblock %}
+		</head>
+
+		<body>
+				<img src="{{ STATIC_URL }}img/logo.jpg" alt="Hi!" height="60" width="60" />
+				{% include 'home/menu.html' %}
+				{% block content %}Je suis le bloc central !{% endblock %}
+				This is my first web page
+				{% for p in polls %}
+				<ul>
+				<h3>{{p.question}}</h3>
+				{% for c in p.choice_set.all %}
+				<li>{{ c.reponse }}</li>
+				{% endfor %}
+				</ul>
+				{% endfor %}
+			</body>
+	</html>
+
